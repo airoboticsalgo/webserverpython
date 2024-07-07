@@ -1,18 +1,19 @@
 from flask import Flask,flash, request, redirect, url_for
 from flask import request
 from werkzeug.utils import secure_filename
+from blueprint_module import blueprint
 import os
+# import app2
 app = Flask(__name__)
+app.register_blueprint(blueprint)
+# app.ad
 app.config['UPLOAD_FOLDER'] = "dataset"
 ALLOWED_EXTENSIONS = {'jpg'}
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route("/", methods=['GET'])
-def hello_world():
-    print("test")
-    return  "test1"
+
 
 @app.route("/filecreate", methods=['POST'])
 def filecreate():
