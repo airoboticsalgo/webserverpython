@@ -8,4 +8,4 @@ import os
 @blueprint.route("/fileget", methods=['GET'])
 def fileget():
     print("test")
-    return  "fileget"
+    return  "fileget22222"
